@@ -21,19 +21,20 @@ e_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
-# get X-Line-Signature header value
-signature = request.headers['X-Line-Signature']
-# get request body as text
-body = request.get_data(as_text=True)
-app.logger.info("Request body: " + body)
+  # get X-Line-Signature header value
+  signature = request.headers['X-Line-Signature']
+  # get request body as text
+  body = request.get_data(as_text=True)
+  app.logger.info("Request body: " + body)
+
 
 # handle webhook body
-try:
-  handler.handle(body, signature)
-except InvalidSignatureError:
-  abort(400)
+  try:
+    handler.handle(body, signature)
+  except InvalidSignatureError:
+    abort(400)
 
-return 'OK'
+  return 'OK'
 
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
