@@ -19,7 +19,7 @@ line_bot_api = LineBotApi('wwqgHPdvCSdYslvVmA/m9CLnmpIw/KZWI6UyPYyx8R9GryRTVPVV7
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('661c4caeccec933cb9687d4a917df32f')
 #歡迎詞
-line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='Welcome !'))
+line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='Welcome to Find My Pet ! Please enter "Start"'))
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -44,16 +44,22 @@ def callback():
     
 if __name__ == "__main__":
     app.run()
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-　　message =event.message.text
-　　line_bot_api.reply_message(event.reply_token,TextSendMessage(message))
+
 
 import re
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-　　message = event.message.text
-　　if re.match("你是誰",message):
-　　　　line_bot_api.reply_message(event.reply_token,TextSendMessage("才不告訴你勒~~"))
-　　else:
+    message = event.message.text
+    if re.match("Start",message):
+　　　　line_bot_api.reply_message(event.reply_token,TextSendMessage("Main Functions:","\n","Enter the city you live in to find the closest animal shelter. EX:台北市")
+    else:
 　　　　line_bot_api.reply_message(event.reply_token,TextSendMessage(message))
+
+def handle_message(event):
+    message = event.message.text
+    if re.match("Hi",message):
+　　sticker_message = StickerSendMessage(
+　　　　package_id='789',
+　　　　sticker_id='10855'
+　　)
+    line_bot_api.reply_message(event.reply_token, sticker_message)
