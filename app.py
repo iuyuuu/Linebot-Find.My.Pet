@@ -26,6 +26,7 @@ line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(t
 
 @app.route("/callback", methods=['POST'])
 def callback():
+    '''
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
@@ -39,7 +40,7 @@ def callback():
     except InvalidSignatureError:
         print("Invalid signature. Please check your channel access token/channel secret.")
         abort(400)
-
+    '''
     return 'OK'
 
 #訊息傳遞區塊
