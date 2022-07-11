@@ -53,7 +53,7 @@ def handle_message(event):
     elif message == "Bye":
        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=789, sticker_id=10871))
     else:
-        message = TextSendMessage(text="Main Functions: Enter the city you live in to find the closest animal shelter. EX:台北市")
+        message = TextSendMessage(text='Main Functions: 1. Enter the city you live in to find the closest animal shelter. EX:台北市 /n 2. Enter the name of the shelter to find the current number of stray dogs,cats. EX:新北市五股區公立動物之家 n/ 3. Enter "Where" to get the map of the shelter')
         line_bot_api.reply_message(event.reply_token, message)
 
 
