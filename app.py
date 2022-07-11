@@ -65,15 +65,5 @@ def handle_message(event):
 line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='Welcome to Find My Pet ! Please enter "Start"'))
 
 
-def handle_message(event):
-    message = event.message.text
-    if re.match("Hi",message):
-        sticker_message = StickerSendMessage(package_id='789',sticker_id='10857')
-    line_bot_api.reply_message(event.reply_token, sticker_message)
-    if re.match("Bye",message):
-        sticker_message = StickerSendMessage(package_id='789',sticker_id='10871')
-    line_bot_api.reply_message(event.reply_token, sticker_message)
-
-
 if __name__ == "__main__":
     app.run()
