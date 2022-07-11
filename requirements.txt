@@ -1,6 +1,5 @@
 flask
 numpy
-beautifulsoup4
 requests
 scipy
 pandas
