@@ -51,10 +51,16 @@ line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(t
 def handle_message(event):
     message =  event.message.text
     if "Hi" in message:
-        sticker_message = StickerSendMessage(package_id='789',sticker_id='10857')
+        sticker_message = StickerSendMessage(
+            package_id='789',
+            sticker_id='10857'
+        )
         line_bot_api.reply_message(event.reply_token, sticker_message)
     elif "Bye" in message:
-        sticker_message = StickerSendMessage(package_id='789',sticker_id='10871')
+        sticker_message = StickerSendMessage(
+            package_id='789',
+            sticker_id='10871'
+        )
         line_bot_api.reply_message(event.reply_token, sticker_message)
     else:
         message = TextSendMessage(text="Main Functions: Enter the city you live in to find the closest animal shelter. EX:台北市")
