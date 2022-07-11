@@ -19,7 +19,8 @@ app = Flask(__name__)
 line_bot_api = LineBotApi('wwqgHPdvCSdYslvVmA/m9CLnmpIw/KZWI6UyPYyx8R9GryRTVPVV77tfot2oKvdLl/ZERWdk21UNzUXAYvVx1JlKU8nfZYjw/e280Gw8KyjpVzym4/CkhZ/2hnNQ/dNXnL2wLAbaTzbIFn6AbAdjsQdB04t89/1O/w1cDnyilFU=')
 
 # 必須放上自己的Channel Secret
-handler = WebhookHandler('661c4caeccec933cb9687d4a917df32f')
+#661c4caeccec933cb9687d4a917df32f
+handler = WebhookHandler('U3aa09e9c07cb88c8b2a790f69dbea42d')
 #歡迎詞
 line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='Welcome to Find My Pet ! Please enter "Start"'))
 
