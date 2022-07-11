@@ -49,21 +49,10 @@ def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text)) 
-
-import re
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    message = event.message.text
-    print(1234566789)
-
-    line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='123 Welcome to Find My Pet ! Please enter "Start"'))
-
     if re.match("Start",message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage("Main Functions:","\n","Enter the city you live in to find the closest animal shelter. EX:台北市"))
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(message))
-
-line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='Welcome to Find My Pet ! Please enter "Start"'))
 
 
 if __name__ == "__main__":
