@@ -124,9 +124,8 @@ def handle_message(event):
         message = TextSendMessage(text=('連江縣流浪犬收容中心'))
         line_bot_api.reply_message(event.reply_token, message)
     elif 'Adopt' in message: #傳送收容管理系統網址＋感謝貼圖
-        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=8522, sticker_id=16581267))
-        message = TextSendMessage(text=('https://asms.coa.gov.tw/Amlapp/App/PetsMap1.aspx'))
-        line_bot_api.reply_message(event.reply_token, message)
+        message = {TextSendMessage(text=('https://asms.coa.gov.tw/Amlapp/App/PetsMap1.apx'),StickerSendMessage(package_id=8522, sticker_id=16581267))}
+        line_bot_api.reply_message(event.reply_token,,message)
     else:
         message = TextSendMessage(text=('Please enter "Start"'))
         line_bot_api.reply_message(event.reply_token, message)
