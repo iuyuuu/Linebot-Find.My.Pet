@@ -54,6 +54,7 @@ import re
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = event.message.text
+    print(1234566789)
 
     line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='123 Welcome to Find My Pet ! Please enter "Start"'))
 
