@@ -20,7 +20,7 @@ line_bot_api = LineBotApi('wwqgHPdvCSdYslvVmA/m9CLnmpIw/KZWI6UyPYyx8R9GryRTVPVV7
 
 # 必須放上自己的Channel Secret
 #661c4caeccec933cb9687d4a917df32f
-handler = WebhookHandler('U3aa09e9c07cb88c8b2a790f69dbea42d')
+handler = WebhookHandler('661c4caeccec933cb9687d4a917df32f')
 #歡迎詞
 line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='Welcome to Find My Pet ! Please enter "Start"'))
 
