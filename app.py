@@ -53,13 +53,13 @@ def handle_message(event):
     elif message == "Bye": #說再見
        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=789, sticker_id=10871))
     elif message == "Start": #開始以及功能選單
-        message = TextSendMessage(text=('Main Functions: 1. Enter the city you live in to find the closest animal shelter. EX:台北市 2. Enter the name of the shelter to find the current number of stray dogs,cats. EX:新北市五股區公立動物之家 3. Enter "Where" to get the map of the shelter'))
+        message = TextSendMessage(text=('Main Functions: 1. Enter the city you live in to find the closest animal shelter. EX:台北市 2. Enter the name of the shelter to get the location. EX:臺北市動物之家 3.Enter "Adopt" to get more information'))
         line_bot_api.reply_message(event.reply_token, message)
     elif '台北市' in message:  #輸入城市可得附近得流浪動物收容所
-        line_bot_api.reply_message(event.reply_token,LocationSendMessage(title='臺北市動物之家', address='Taipei', latitude=25.063149585995905, longitude=121.60929481112795))
-    elif '臺北市動物之家' in message:  #輸入城市可得附近得流浪動物收容所
-        message = TextSendMessage(text=('No. 852號, Tanmei St, Neihu District, Taipei City, 114'))
+        message = TextSendMessage(text=('臺北市動物之家'))
         line_bot_api.reply_message(event.reply_token, message)
+    elif '臺北市動物之家' in message:  #輸入城市可得附近得流浪動物收容所
+        line_bot_api.reply_message(event.reply_token,LocationSendMessage(title='臺北市動物之家', address='Taipei', latitude=25.063149585995905, longitude=121.60929481112795))
     elif '新北市' in message:
         message = TextSendMessage(text=('新北市政府動物保護防疫處, 新北市板橋區公立動物之家, 新北市新店區公立動物之家, 新北市中和區公立動物之家, 新北市淡水區公立動物之家, 新北市瑞芳區公立動物之家, 新北市五股區公立動物之家, 新北市八里區公立動物之家, 新北市三芝區公立動物之家'))
         line_bot_api.reply_message(event.reply_token, message)
@@ -122,6 +122,13 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     elif '連江縣' in message:
         message = TextSendMessage(text=('連江縣流浪犬收容中心'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif 'Adopt' in message: #傳送收容管理系統網址＋感謝貼圖
+        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=8522, sticker_id=16581267))
+        message = TextSendMessage(text=('https://asms.coa.gov.tw/Amlapp/App/PetsMap1.aspx'))
+        line_bot_api.reply_message(event.reply_token, message)
+    else:
+        message = TextSendMessage(text=('Please enter "Start"'))
         line_bot_api.reply_message(event.reply_token, message)
 
 
