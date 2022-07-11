@@ -6,7 +6,7 @@ scipy
 pandas
 lxml
 line-bot-sdk
-datetime 
+datetime
 matplotlib
 gspread
 oauth2client
