@@ -59,7 +59,6 @@ def handle_message(event):
     elif re.match("Start",message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage("Main Functions:","\n","Enter the city you live in to find the closest animal shelter. EX:台北市"))
     else:
-        message = TextSendMessage(text=event.message.text)
         line_bot_api.reply_message(event.reply_token, message)
 
 
