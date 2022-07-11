@@ -48,13 +48,86 @@ line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(t
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message =  event.message.text
-    if message == "Hi":
+    if message == "Hi": #打招呼
        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=789, sticker_id=10857))
-    elif message == "Bye":
+    elif message == "Bye": #說再見
        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=789, sticker_id=10871))
-    else:
-        message = TextSendMessage(text=('Main Functions:','1. Enter the city you live in to find the closest animal shelter. EX:台北市','2. Enter the name of the shelter to find the current number of stray dogs,cats. EX:新北市五股區公立動物之家','3. Enter "Where" to get the map of the shelter'))
+    elif message == "Start": #開始以及功能選單
+        message = TextSendMessage(text=('Main Functions: 1. Enter the city you live in to find the closest animal shelter. EX:台北市 2. Enter the name of the shelter to find the current number of stray dogs,cats. EX:新北市五股區公立動物之家 3. Enter "Where" to get the map of the shelter'))
         line_bot_api.reply_message(event.reply_token, message)
+    elif '台北市' in message:  #輸入城市可得附近得流浪動物收容所
+        line_bot_api.reply_message(event.reply_token,LocationSendMessage(title='臺北市動物之家', address='Taipei', latitude=25.063149585995905, longitude=121.60929481112795))
+    elif '臺北市動物之家' in message:  #輸入城市可得附近得流浪動物收容所
+        message = TextSendMessage(text=('No. 852號, Tanmei St, Neihu District, Taipei City, 114'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '新北市' in message:
+        message = TextSendMessage(text=('新北市政府動物保護防疫處, 新北市板橋區公立動物之家, 新北市新店區公立動物之家, 新北市中和區公立動物之家, 新北市淡水區公立動物之家, 新北市瑞芳區公立動物之家, 新北市五股區公立動物之家, 新北市八里區公立動物之家, 新北市三芝區公立動物之家'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '台中市' in message:
+        message = TextSendMessage(text=('臺中市動物之家南屯園區, 臺中市動物之家后里園區'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '台南市' in message:
+        message = TextSendMessage(text=('臺南市動物之家灣裡站, 臺南市動物之家善化站'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '高雄市' in message:
+        message = TextSendMessage(text=('高雄市壽山動物保護教育園區, 高雄市燕巢動物保護關愛園區'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '桃園市' in message:
+        message = TextSendMessage(text=('桃園市動物保護教育園區'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '宜蘭縣' in message:
+        message = TextSendMessage(text=('宜蘭縣流浪動物中途之家'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '新竹縣' in message:
+        message = TextSendMessage(text=('新竹縣公立動物收容所'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '苗栗縣' in message:
+        message = TextSendMessage(text=('苗栗縣生態保育教育中心'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '彰化縣' in message:
+        message = TextSendMessage(text=('彰化縣流浪狗中途之家'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '南投縣' in message:
+        message = TextSendMessage(text=('南投縣公立動物收容所'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '雲林縣' in message:
+        message = TextSendMessage(text=('雲林縣流浪動物收容所'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '嘉義縣' in message:
+        message = TextSendMessage(text=('嘉義縣流浪犬中途之家'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '屏東縣' in message:
+        message = TextSendMessage(text=('屏東縣公立犬貓中途之家	'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '臺東縣' in message:
+        message = TextSendMessage(text=('臺東縣動物收容中心'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '花蓮縣' in message:
+        message = TextSendMessage(text=('花蓮縣狗貓躍動園區'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '澎湖縣' in message:
+        message = TextSendMessage(text=('澎湖縣流浪動物收容中心'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '基隆市' in message:
+        message = TextSendMessage(text=('基隆市寵物銀行'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '新竹市' in message:
+        message = TextSendMessage(text=('新竹市動物保護教育園區'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '嘉義市' in message:
+        message = TextSendMessage(text=('嘉義市動物保護教育園區'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '金門縣' in message:
+        message = TextSendMessage(text=('金門縣動物收容中心'))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif '連江縣' in message:
+        message = TextSendMessage(text=('連江縣流浪犬收容中心'))
+        line_bot_api.reply_message(event.reply_token, message)
+
+
+
+
+
 
 
 import os
