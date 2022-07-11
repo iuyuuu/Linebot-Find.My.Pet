@@ -26,21 +26,23 @@ line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(t
 
 @app.route("/callback", methods=['POST'])
 def callback():
-    
+    print('back 01')
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
+    print('back 02')
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
-    '''
     # handle webhook body
+
+    print('back 03')
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
         print("Invalid signature. Please check your channel access token/channel secret.")
         abort(400)
-    '''
+
     return 'OK'
 
 #訊息傳遞區塊
