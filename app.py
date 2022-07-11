@@ -49,6 +49,7 @@ line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(t
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    message =  event.message.text
     if "Hi" in message:
         sticker_message = StickerSendMessage(package_id='789',sticker_id='10857')
         line_bot_api.reply_message(event.reply_token, sticker_message)
