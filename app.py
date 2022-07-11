@@ -26,14 +26,14 @@ line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(t
 
 @app.route("/callback", methods=['POST'])
 def callback():
-    '''
+    
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
-
+    '''
     # handle webhook body
     try:
         handler.handle(body, signature)
