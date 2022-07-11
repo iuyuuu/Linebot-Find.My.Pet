@@ -123,7 +123,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     elif 'Adopt' in message: #傳送收容管理系統網址
         message = TextSendMessage(text=('https://asms.coa.gov.tw/Amlapp/App/PetsMap1.apx'))
-        line_bot_api.reply_message(event.reply_token,,message)
+        line_bot_api.reply_message(event.reply_token,message)
     else:
         message = TextSendMessage(text=('Please enter "Start"'))
         line_bot_api.reply_message(event.reply_token, message)
