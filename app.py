@@ -7,9 +7,7 @@ from linebot import (
 from linebot.exceptions import (
     InvalidSignatureError
 )
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
-)
+from linebot.models import *
 
 app = Flask(__name__)
 
@@ -50,18 +48,10 @@ line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(t
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message =  event.message.text
-    if "Hi" in message:
-        sticker_message = StickerSendMessage(
-            package_id='789',
-            sticker_id='10857'
-        )
-        line_bot_api.reply_message(event.reply_token, sticker_message)
-    elif "Bye" in message:
-        sticker_message = StickerSendMessage(
-            package_id='789',
-            sticker_id='10871'
-        )
-        line_bot_api.reply_message(event.reply_token, sticker_message)
+    if message == "Hi":
+       line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=789, sticker_id=10857))
+    elif message == "Bye":
+       line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=789, sticker_id=10871))
     else:
         message = TextSendMessage(text="Main Functions: Enter the city you live in to find the closest animal shelter. EX:台北市")
         line_bot_api.reply_message(event.reply_token, message)
