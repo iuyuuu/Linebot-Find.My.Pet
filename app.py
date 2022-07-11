@@ -22,6 +22,10 @@ line_bot_api = LineBotApi('wwqgHPdvCSdYslvVmA/m9CLnmpIw/KZWI6UyPYyx8R9GryRTVPVV7
 handler = WebhookHandler('661c4caeccec933cb9687d4a917df32f')
 #歡迎詞
 line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='Welcome to Find My Pet ! Please enter "Start"'))
+line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='MAIN FUNCTION: Search for the nearest animal shelter','Please enter the nearest city'))
+line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='臺北市動物之家'))
+
+
 
 @app.route("/callback", methods=['POST'])
 def callback():
