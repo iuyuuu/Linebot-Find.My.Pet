@@ -87,21 +87,21 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,LocationSendMessage(title='澎湖縣流浪動物收容中心', address='澎湖縣', latitude=23.55242754587402, longitude=119.62716313990182))
     elif "Adopt" in message:  #Carousel linebot選單可以連接到指定網站
         buttons_template_message = TemplateSendMessage(
-        alt_text = "Adopt Information",
+        alt_text = "Adoption",
         template=CarouselTemplate(
             columns=[
                 CarouselColumn(
                     thumbnail_image_url ="https://images.unsplash.com/photo-1415369629372-26f2fe60c467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
-                    title =" Information",
-                    text ="Please click the information you need",
+                    title ="Adoption",
+                    text ="Adoption Information Service",
                     actions=[
                              MessageAction(
                                  label='教學內容',
                                  text='拆解步驟詳細介紹安裝並使用Anaconda、Python、Spyder、VScode…'
                              ),
                              URIAction(
-                                 label='馬上查看',
-                                 uri='https://marketingliveincode.com/?page_id=270'
+                                 label='Stray Animals Matching Platform',
+                                 uri='https://asms.coa.gov.tw/Amlapp/App/AnnounceMent.aspx?'
                              )
                          ]
                     )
