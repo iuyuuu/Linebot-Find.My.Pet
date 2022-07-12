@@ -121,13 +121,31 @@ def handle_message(event):
     elif '連江縣' in message:
         message = TextSendMessage(text=('連江縣流浪犬收容中心'))
         line_bot_api.reply_message(event.reply_token, message)
-    elif 'Adopt' in message: #傳送收容管理系統網址
-        message = TextSendMessage(text=('https://asms.coa.gov.tw/Amlapp/App/PetsMap1.apx'))
-        line_bot_api.reply_message(event.reply_token,message)
+    elif "Adopt" in message:
+        buttons_template_message = TemplateSendMessage(
+        alt_text = "股票資訊",
+        template=CarouselTemplate(
+            columns=[
+                CarouselColumn(
+                thumbnail_image_url ="https://images.unsplash.com/photo-1574227114640-234776e0d217?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1016&q=80",
+                title = message + " 股票資訊",
+                text ="請點選想查詢的股票資訊",
+                actions =[
+                    MessageAction(
+                        label= message[3:] + " 個股資訊",
+                        text= "個股資訊 " + message[3:]),
+                    MessageAction(
+                        label= message[3:] + " 個股新聞",
+                        text= "個股新聞 " + message[3:])
+                        ]
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, buttons_template_message)
     else:
         message = TextSendMessage(text=('Please enter "Start"'))
         line_bot_api.reply_message(event.reply_token, message)
-
 
 
 
