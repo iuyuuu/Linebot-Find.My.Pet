@@ -101,7 +101,7 @@ def handle_message(event):
                              ),
                              URIAction(
                                  label='Stray Animals Matching Platform',
-                                 uri='https://wepet.tw/公立領養'
+                                 uri='https://developers.line.biz/en/docs/messaging-api/message-types/'
                              )
                          ]
                     )
