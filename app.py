@@ -101,7 +101,7 @@ def handle_message(event):
                              ),
                              URIAction(
                                  label='Matching Platform',
-                                 uri='https://marketingliveincode.com'
+                                 uri='https://asms.coa.gov.tw/Amlapp/App/AnnounceMent.aspx?PageType=Transfer'
                              )
                          ]
                     )
