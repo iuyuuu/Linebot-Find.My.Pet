@@ -95,12 +95,10 @@ def handle_message(event):
                 title = message + " Information",
                 text ="Please click the information you need",
                 actions =[
-                    MessageAction(
-                        type= "uri"
+                    URIAction(
                         label= "Stray Animals Matching Platform",
                         uri= "https://asms.coa.gov.tw/Amlapp/App/AnnounceMent.aspx?PageType=Transfer"),
-                    MessageAction(
-                        type= "uri"
+                    URIAction(
                         label= "Shelters in Taiwan",
                         uri= "https://asms.coa.gov.tw/Amlapp/App/PetsMap1.aspx")
                         ]
