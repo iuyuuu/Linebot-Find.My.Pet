@@ -91,16 +91,18 @@ def handle_message(event):
         template=CarouselTemplate(
             columns=[
                 CarouselColumn(
-                thumbnail_image_url ="https://images.unsplash.com/photo-1570824105192-a7bb72b73141?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1442&q=80",
-                title = message + " Information",
-                text ="Please click the information you need",
-                actions =[
-                    URIAction(
-                        label= "Stray Animals Matching Platform",
-                        uri= "https://asms.coa.gov.tw/Amlapp/App/AnnounceMent.aspx?PageType=Transfer"),
-                    URIAction(
-                        label= "Shelters in Taiwan",
-                        uri= "https://asms.coa.gov.tw/Amlapp/App/PetsMap1.aspx")
+                    thumbnail_image_url ="https://images.unsplash.com/photo-1570824105192-a7bb72b73141?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1442&q=80",
+                    title = message + " Information",
+                    text ="Please click the information you need",
+                    actions =[
+                        URIAction(
+                            label= "Stray Animals Matching Platform",
+                            uri= "https://asms.coa.gov.tw/Amlapp/App/AnnounceMent.aspx?PageType=Transfer"
+                        ),
+                        URIAction(
+                            label= "Shelters in Taiwan",
+                            uri= "https://asms.coa.gov.tw/Amlapp/App/PetsMap1.aspx"
+                        )
                         ]
                     )
                 ]
