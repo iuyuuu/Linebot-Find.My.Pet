@@ -100,7 +100,7 @@ def handle_message(event):
                                  text='拆解步驟詳細介紹安裝並使用Anaconda、Python、Spyder、VScode…'
                              ),
                              URIAction(
-                                 label='Stray Animals Matching Platform',
+                                 label='Matching Platform',
                                  uri='https://marketingliveincode.com'
                              )
                          ]
