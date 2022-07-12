@@ -101,7 +101,7 @@ def handle_message(event):
                              ),
                              URIAction(
                                  label='Stray Animals Matching Platform',
-                                 uri='https://developers.line.biz/en/docs/messaging-api/message-types/'
+                                 uri='https://marketingliveincode.com'
                              )
                          ]
                     )
