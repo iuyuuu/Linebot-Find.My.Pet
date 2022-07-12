@@ -98,11 +98,11 @@ def handle_message(event):
                         URIAction(
                             label= "Stray Animals Matching Platform",
                             uri= "https://asms.coa.gov.tw/Amlapp/App/AnnounceMent.aspx?PageType=Transfer"
-                        ),
+                            ),
                         URIAction(
                             label= "Shelters in Taiwan",
                             uri= "https://asms.coa.gov.tw/Amlapp/App/PetsMap1.aspx"
-                        )
+                            )
                         ]
                     )
                 ]
