@@ -101,7 +101,7 @@ def handle_message(event):
                              ),
                              URIAction(
                                  label='Stray Animals Matching Platform',
-                                 uri='https://asms.coa.gov.tw/Amlapp/App/AnnounceMent.aspx?'
+                                 uri='https://asms.coa.gov.tw/AmlApp/App/AnnounceMent.aspx?PageType=Adopt'
                              )
                          ]
                     )
