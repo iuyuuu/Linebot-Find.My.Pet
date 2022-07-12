@@ -95,9 +95,9 @@ def handle_message(event):
                     title ="Adoption",
                     text ="Adoption Information Service",
                     actions=[
-                             MessageAction(
-                                 label='教學內容',
-                                 text='拆解步驟詳細介紹安裝並使用Anaconda、Python、Spyder、VScode…'
+                             URIAction(
+                                 label='Shelters in Taiwan',
+                                 uri='https://asms.coa.gov.tw/Amlapp/App/PetsMap1.aspx'
                              ),
                              URIAction(
                                  label='Matching Platform',
