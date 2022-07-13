@@ -53,7 +53,7 @@ def handle_message(event):
     elif message == "再見": #說再見
        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=789, sticker_id=10871))
     elif message == "開始": #開始以及功能選單
-        message = TextSendMessage(text=('主要功能: 1. 請輸入你佐在的城市來查詢最近的動物收容所 EX:台北市 2. 請輸入“領養”來獲得更多資訊'))
+        message = TextSendMessage(text=('主要功能: 1. 請輸入你所在的城市以查詢最近的動物收容所 EX:台北市 2. 請輸入“領養”來獲得更多資訊'))
         line_bot_api.reply_message(event.reply_token, message)
     elif '台北市' in message:  #輸入城市可得附近得流浪動物收容所
         line_bot_api.reply_message(event.reply_token,LocationSendMessage(title='臺北市動物之家', address='臺北市', latitude=25.063149585995905, longitude=121.60929481112795))
@@ -114,7 +114,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
 
-
+#執行
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
