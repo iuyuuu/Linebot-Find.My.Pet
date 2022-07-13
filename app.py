@@ -40,7 +40,7 @@ def callback():
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
 #歡迎詞
-line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='Welcome to Find My Pet ! Please enter "Start"'))
+line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='歡迎來到Find My Pet!請輸入"開始"'))
 
 
 # 處理訊息
@@ -48,12 +48,12 @@ line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(t
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message =  event.message.text
-    if message == "Hi": #打招呼
+    if message == "哈囉": #打招呼
        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=789, sticker_id=10857))
-    elif message == "Bye": #說再見
+    elif message == "再見": #說再見
        line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=789, sticker_id=10871))
-    elif message == "Start": #開始以及功能選單
-        message = TextSendMessage(text=('Main Functions: 1. Enter the city you live in to find the closest animal shelter. EX:台北市 2. Enter "Adopt" to get more information'))
+    elif message == "開始": #開始以及功能選單
+        message = TextSendMessage(text=('主要功能: 1. 請輸入你佐在的城市來查詢最近的動物收容所 EX:台北市 2. 請輸入“領養”來獲得更多資訊'))
         line_bot_api.reply_message(event.reply_token, message)
     elif '台北市' in message:  #輸入城市可得附近得流浪動物收容所
         line_bot_api.reply_message(event.reply_token,LocationSendMessage(title='臺北市動物之家', address='臺北市', latitude=25.063149585995905, longitude=121.60929481112795))
@@ -85,22 +85,22 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,LocationSendMessage(title='花蓮縣狗貓躍動園區', address='花蓮縣', latitude=23.805844864623193, longitude=121.4981204264126))
     elif '澎湖縣' in message:
         line_bot_api.reply_message(event.reply_token,LocationSendMessage(title='澎湖縣流浪動物收容中心', address='澎湖縣', latitude=23.55242754587402, longitude=119.62716313990182))
-    elif "Adopt" in message:  #Carousel linebot選單可以連接到指定網站
+    elif "領養" in message:  #Carousel linebot選單可以連接到指定網站
         buttons_template_message = TemplateSendMessage(
-        alt_text = "Adoption",
+        alt_text = "領養",
         template=CarouselTemplate(
             columns=[
                 CarouselColumn(
                     thumbnail_image_url ="https://images.unsplash.com/photo-1415369629372-26f2fe60c467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
-                    title ="Adoption",
-                    text ="Adoption Information Service",
+                    title ="領養",
+                    text ="領養服務相關資訊",
                     actions=[
                              URIAction(
-                                 label='Shelters in Taiwan',
+                                 label='動物收容所一覽表',
                                  uri='https://asms.coa.gov.tw/Amlapp/App/PetsMap1.aspx'
                              ),
                              URIAction(
-                                 label='Matching Platform',
+                                 label='流浪動物媒合平台',
                                  uri='https://asms.coa.gov.tw/Amlapp/App/AnnounceMent.aspx?PageType=Transfer'
                              )
                          ]
@@ -110,7 +110,7 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
     else:
-        message = TextSendMessage(text=('Please enter "Start"')) #輸入無法判斷的訊息會跳回請輸入Start
+        message = TextSendMessage(text=('請輸入 "開始"')) #輸入無法判斷的訊息會跳回請輸入Start
         line_bot_api.reply_message(event.reply_token, message)
 
 
