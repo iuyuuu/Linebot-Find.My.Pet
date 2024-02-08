@@ -1,6 +1,17 @@
-##
+# Linebot- Find My Pet
 
-# Load the modules required for the LineBot.
+## Overview
+This side project is a LINE (similar to WhatsApp) chatbot project written in Python called “Find my Pet.” 
+
+"Find my Pet" serves as an automated chatbot that integrates with the government's animal adoption system and displays profiles of stray animals. Users can effortlessly view the number of animals available in nearby shelters. Additionally, by inputting their location, the chatbot efficiently guides users to the closest animal shelter. Leveraging Python, I constructed the Application Programming Interface (API), and deployed the system on Heroku via GitHub. The chatbot aims to  enhance the animal adoption rate while reducing information search time by over 30%.
+
+## Motivation and Purpose
+My decision to do this side project was driven by a deep-seated desire to contribute to animal rights advocacy. This passion has startede during my university studies, particularly through a course titled "Marketing of Wildlife Conservation," where I gained insight into the significant social issues caused by the overpopulation of stray dogs in Taiwan, totaling over 150,000 per year.
+
+During a summer internship at the Asia Animal Welfare Association, I witnessed firsthand the inadequacy of communication regarding animal adoption information in Taiwan. This realization fueled my determination to create an integrated adoption chatbot, aiming to provide a more accessible and user-friendly tool. By breaking down barriers to pet adoption and enhancing the integration of information, the chatbot seeks to foster greater willingness among individuals to adopt stray dogs and cats, thus hoping to contribute to animal welfare.
+
+
+## Load the modules required for the LineBot.
 
 ```python
 from flask import Flask, request, abort
@@ -48,7 +59,7 @@ def callback():
     return 'OK'
 ```
 
-# Message delivery section
+## Message delivery section
 ## Welcome greating 
 ```python
 line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='歡迎來到Find My Pet!請輸入"開始"'))
