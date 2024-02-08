@@ -1,7 +1,12 @@
 ##
-#載入LineBot所需要的模組
-from flask import Flask, request, abort
 
+#Load the modules required for the LineBot.
+
+```python
+from flask import Flask, request, abort
+```
+
+```python
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -9,17 +14,21 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
+```
 
+```python
 app = Flask(__name__)
+```
 
-
-# 必須放上自己的Channel Access Token
-
+## Channel Access Token
+```python
 line_bot_api = LineBotApi('wwqgHPdvCSdYslvVmA/m9CLnmpIw/KZWI6UyPYyx8R9GryRTVPVV77tfot2oKvdLl/ZERWdk21UNzUXAYvVx1JlKU8nfZYjw/e280Gw8KyjpVzym4/CkhZ/2hnNQ/dNXnL2wLAbaTzbIFn6AbAdjsQdB04t89/1O/w1cDnyilFU=')
-
-# 必須放上自己的Channel Secret
+```
+## Channel Secret
+```python
 handler = WebhookHandler('661c4caeccec933cb9687d4a917df32f')
-
+```
+```python
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -37,15 +46,16 @@ def callback():
         abort(400)
 
     return 'OK'
+```
 
-#訊息傳遞區塊
-##### 基本上程式編輯都在這個function #####
-#歡迎詞
+#Message delivery section
+##Welcome greating 
+```python
 line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='歡迎來到Find My Pet!請輸入"開始"'))
+```
 
-
-# 處理訊息
-
+## Dealing with the messages
+```python
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message =  event.message.text
@@ -113,10 +123,12 @@ def handle_message(event):
     else:
         message = TextSendMessage(text=('請輸入 "開始"')) #輸入無法判斷的訊息會跳回請輸入Start
         line_bot_api.reply_message(event.reply_token, message)
+```
 
-
-#執行
+##Activate
+```python
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+```
