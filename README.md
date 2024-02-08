@@ -1,6 +1,6 @@
 ##
 
-#Load the modules required for the LineBot.
+# Load the modules required for the LineBot.
 
 ```python
 from flask import Flask, request, abort
@@ -48,8 +48,8 @@ def callback():
     return 'OK'
 ```
 
-#Message delivery section
-##Welcome greating 
+# Message delivery section
+## Welcome greating 
 ```python
 line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='歡迎來到Find My Pet!請輸入"開始"'))
 ```
@@ -125,7 +125,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 ```
 
-##Activate
+## Activate
 ```python
 import os
 if __name__ == "__main__":
