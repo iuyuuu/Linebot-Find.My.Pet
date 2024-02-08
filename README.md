@@ -61,11 +61,14 @@ def callback():
 
 ## Message delivery section
 ## Welcome greating 
+When we first open "Find my pet" it will say the welcome words.
 ```python
 line_bot_api.push_message('U3aa09e9c07cb88c8b2a790f69dbea42d', TextSendMessage(text='歡迎來到Find My Pet!請輸入"開始"'))
 ```
 
 ## Dealing with the messages
+This is the code to handle messages. The chatbot will reply based on the contents users enter and provide information accordingly.
+
 ```python
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
